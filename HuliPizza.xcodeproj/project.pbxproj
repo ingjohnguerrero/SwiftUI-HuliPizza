@@ -14,6 +14,13 @@
 		725E475E2BB632AD006A73B9 /* HuliPizzaTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E475D2BB632AD006A73B9 /* HuliPizzaTests.swift */; };
 		725E47682BB632AD006A73B9 /* HuliPizzaUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E47672BB632AD006A73B9 /* HuliPizzaUITests.swift */; };
 		725E476A2BB632AD006A73B9 /* HuliPizzaUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E47692BB632AD006A73B9 /* HuliPizzaUITestsLaunchTests.swift */; };
+		725E47772BB6425B006A73B9 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E47762BB6425B006A73B9 /* MenuView.swift */; };
+		725E47792BB642AE006A73B9 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E47782BB642AE006A73B9 /* OrderView.swift */; };
+		725E477B2BB6430B006A73B9 /* MenuItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E477A2BB6430B006A73B9 /* MenuItemView.swift */; };
+		725E477D2BB6431B006A73B9 /* MenuRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E477C2BB6431B006A73B9 /* MenuRowView.swift */; };
+		725E477F2BB64330006A73B9 /* OrderRowView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E477E2BB64330006A73B9 /* OrderRowView.swift */; };
+		725E47812BB6433B006A73B9 /* HeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E47802BB6433B006A73B9 /* HeaderView.swift */; };
+		725E47832BB647AA006A73B9 /* RatingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E47822BB647AA006A73B9 /* RatingsView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -44,6 +51,13 @@
 		725E47632BB632AD006A73B9 /* HuliPizzaUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HuliPizzaUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		725E47672BB632AD006A73B9 /* HuliPizzaUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuliPizzaUITests.swift; sourceTree = "<group>"; };
 		725E47692BB632AD006A73B9 /* HuliPizzaUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuliPizzaUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		725E47762BB6425B006A73B9 /* MenuView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuView.swift; sourceTree = "<group>"; };
+		725E47782BB642AE006A73B9 /* OrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderView.swift; sourceTree = "<group>"; };
+		725E477A2BB6430B006A73B9 /* MenuItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuItemView.swift; sourceTree = "<group>"; };
+		725E477C2BB6431B006A73B9 /* MenuRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuRowView.swift; sourceTree = "<group>"; };
+		725E477E2BB64330006A73B9 /* OrderRowView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrderRowView.swift; sourceTree = "<group>"; };
+		725E47802BB6433B006A73B9 /* HeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeaderView.swift; sourceTree = "<group>"; };
+		725E47822BB647AA006A73B9 /* RatingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingsView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +112,13 @@
 				725E474E2BB632AB006A73B9 /* ContentView.swift */,
 				725E47502BB632AD006A73B9 /* Assets.xcassets */,
 				725E47522BB632AD006A73B9 /* Preview Content */,
+				725E47762BB6425B006A73B9 /* MenuView.swift */,
+				725E47782BB642AE006A73B9 /* OrderView.swift */,
+				725E477A2BB6430B006A73B9 /* MenuItemView.swift */,
+				725E477C2BB6431B006A73B9 /* MenuRowView.swift */,
+				725E477E2BB64330006A73B9 /* OrderRowView.swift */,
+				725E47802BB6433B006A73B9 /* HeaderView.swift */,
+				725E47822BB647AA006A73B9 /* RatingsView.swift */,
 			);
 			path = HuliPizza;
 			sourceTree = "<group>";
@@ -258,7 +279,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				725E474F2BB632AB006A73B9 /* ContentView.swift in Sources */,
+				725E47792BB642AE006A73B9 /* OrderView.swift in Sources */,
+				725E47772BB6425B006A73B9 /* MenuView.swift in Sources */,
 				725E474D2BB632AB006A73B9 /* HuliPizzaApp.swift in Sources */,
+				725E47832BB647AA006A73B9 /* RatingsView.swift in Sources */,
+				725E477D2BB6431B006A73B9 /* MenuRowView.swift in Sources */,
+				725E477F2BB64330006A73B9 /* OrderRowView.swift in Sources */,
+				725E477B2BB6430B006A73B9 /* MenuItemView.swift in Sources */,
+				725E47812BB6433B006A73B9 /* HeaderView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

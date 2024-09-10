@@ -8,14 +8,24 @@
 import SwiftUI
 
 struct ContentView: View {
+    var orders: [Int] = [1, 2, 3, 4, 5]
+    var showOrders: Bool = false
     var body: some View {
         VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+            HeaderView()
+            if showOrders {
+                OrderView(orders: orders)
+            } else {
+                MenuItemView()
+                    .padding(5)
+                    .background(Color("Sky"), in: RoundedRectangle(cornerRadius: 10))
+                MenuView()
+                
+            }
+            Spacer()
         }
         .padding()
+        .background(.linearGradient(colors: [.cyan, Color("Surf"), Color("Sky"), .white], startPoint: .topLeading, endPoint: .bottom))
     }
 }
 
