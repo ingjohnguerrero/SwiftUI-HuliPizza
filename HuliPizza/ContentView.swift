@@ -11,6 +11,7 @@ struct ContentView: View {
     var menu: [MenuItem]
     @State private var orders: [OrderItem] = testOrders
     @State private var showOrders: Bool = true
+    @State private var selectedItem: MenuItem = noMenuItem
     var body: some View {
         VStack {
             HeaderView()
@@ -31,10 +32,10 @@ struct ContentView: View {
                 OrderView(orders: $orders)
                     .clipShape(RoundedRectangle(cornerRadius: 8))
             } else {
-                MenuItemView()
+                MenuItemView(item: $selectedItem)
                     .padding(5)
                     .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 10))
-                MenuView(menu: menu)
+                MenuView(menu: menu, selectedItem: $selectedItem)
             }
             Spacer()
         }

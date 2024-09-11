@@ -9,10 +9,11 @@ import SwiftUI
 
 struct MenuItemView: View {
     @State var addedItem: Bool = false
+    @Binding var item: MenuItem
     var body: some View {
         VStack {
             HStack {
-                Text("Margherita Huli Pizza")
+                Text(item.name)
                     .font(.title)
                 //                    .bold()
                     .fontWeight(.semibold)
@@ -27,7 +28,7 @@ struct MenuItemView: View {
 //                        maxHeight: 300
 //                    )
                 //                Image(systemName: "rectangle.fill").font(.largeTitle)
-                if let image = UIImage(named: "0_lg") {
+                if let image = UIImage(named: "\(item.id)_lg") {
                     Image(uiImage: image)
                     //                    .clipShape(RoundedRectangle(cornerRadius: 10))
                         .resizable()
@@ -52,7 +53,7 @@ struct MenuItemView: View {
             .shadow(color: .teal, radius: 5, x: 8, y: 8)
             VStack(alignment: .leading) {
                 ScrollView {
-                    Text("Bavarian bergkase hard cheese feta. Jarlsberg monterey jack smelly cheese taleggio cut the cheese the big cheese babybel lancashire. Mascarpone smelly cheese boursin stinking bishop cheesy grin cauliflower cheese cheeseburger gouda. Emmental halloumi macaroni cheese roquefort mascarpone roquefort rubber cheese cheesy feet. Edam cheese triangles cheese on toast.")
+                    Text(item.description)
                         .font(.custom("Georgia", size: 18, relativeTo: .body))
                 }
                 Button() {
@@ -75,5 +76,5 @@ struct MenuItemView: View {
 }
 
 #Preview {
-    MenuItemView()
+    MenuItemView(item: .constant(testMenuItem))
 }
