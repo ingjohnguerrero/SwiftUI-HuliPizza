@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		723A6DD22C913ABB006692CA /* MenuItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723A6DCD2C913ABB006692CA /* MenuItem.swift */; };
+		723A6DD32C913ABB006692CA /* MenuModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723A6DCE2C913ABB006692CA /* MenuModel.swift */; };
+		723A6DD42C913ABB006692CA /* OrderItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723A6DCF2C913ABB006692CA /* OrderItem.swift */; };
+		723A6DD52C913ABB006692CA /* OrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 723A6DD02C913ABB006692CA /* OrderModel.swift */; };
 		725E474D2BB632AB006A73B9 /* HuliPizzaApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E474C2BB632AB006A73B9 /* HuliPizzaApp.swift */; };
 		725E474F2BB632AB006A73B9 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 725E474E2BB632AB006A73B9 /* ContentView.swift */; };
 		725E47512BB632AD006A73B9 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 725E47502BB632AD006A73B9 /* Assets.xcassets */; };
@@ -41,6 +45,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		723A6DCD2C913ABB006692CA /* MenuItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItem.swift; sourceTree = "<group>"; };
+		723A6DCE2C913ABB006692CA /* MenuModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuModel.swift; sourceTree = "<group>"; };
+		723A6DCF2C913ABB006692CA /* OrderItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderItem.swift; sourceTree = "<group>"; };
+		723A6DD02C913ABB006692CA /* OrderModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderModel.swift; sourceTree = "<group>"; };
 		725E47492BB632AB006A73B9 /* HuliPizza.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = HuliPizza.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		725E474C2BB632AB006A73B9 /* HuliPizzaApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HuliPizzaApp.swift; sourceTree = "<group>"; };
 		725E474E2BB632AB006A73B9 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -85,6 +93,17 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		723A6DD12C913ABB006692CA /* Model Code */ = {
+			isa = PBXGroup;
+			children = (
+				723A6DCD2C913ABB006692CA /* MenuItem.swift */,
+				723A6DCE2C913ABB006692CA /* MenuModel.swift */,
+				723A6DCF2C913ABB006692CA /* OrderItem.swift */,
+				723A6DD02C913ABB006692CA /* OrderModel.swift */,
+			);
+			path = "Model Code";
+			sourceTree = "<group>";
+		};
 		725E47402BB632AB006A73B9 = {
 			isa = PBXGroup;
 			children = (
@@ -108,6 +127,7 @@
 		725E474B2BB632AB006A73B9 /* HuliPizza */ = {
 			isa = PBXGroup;
 			children = (
+				723A6DD12C913ABB006692CA /* Model Code */,
 				725E474C2BB632AB006A73B9 /* HuliPizzaApp.swift */,
 				725E474E2BB632AB006A73B9 /* ContentView.swift */,
 				725E47502BB632AD006A73B9 /* Assets.xcassets */,
@@ -281,12 +301,16 @@
 				725E474F2BB632AB006A73B9 /* ContentView.swift in Sources */,
 				725E47792BB642AE006A73B9 /* OrderView.swift in Sources */,
 				725E47772BB6425B006A73B9 /* MenuView.swift in Sources */,
+				723A6DD52C913ABB006692CA /* OrderModel.swift in Sources */,
 				725E474D2BB632AB006A73B9 /* HuliPizzaApp.swift in Sources */,
 				725E47832BB647AA006A73B9 /* RatingsView.swift in Sources */,
+				723A6DD42C913ABB006692CA /* OrderItem.swift in Sources */,
 				725E477D2BB6431B006A73B9 /* MenuRowView.swift in Sources */,
 				725E477F2BB64330006A73B9 /* OrderRowView.swift in Sources */,
+				723A6DD32C913ABB006692CA /* MenuModel.swift in Sources */,
 				725E477B2BB6430B006A73B9 /* MenuItemView.swift in Sources */,
 				725E47812BB6433B006A73B9 /* HeaderView.swift in Sources */,
+				723A6DD22C913ABB006692CA /* MenuItem.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

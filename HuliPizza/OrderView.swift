@@ -8,40 +8,51 @@
 import SwiftUI
 
 struct OrderView: View {
-    var orders: [Int]
+    @Binding var orders: [OrderItem]
     var body: some View {
-        ZStack(alignment: .top) {
-            ScrollView {
-                ForEach(orders, id: \.self) { order in
-                    OrderRowView(order: order)
-                        .padding(.bottom, 5)
-                        .padding([.leading, .trailing], 7)
-                        .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
-                        .shadow(radius: 10)
-                }
-            }.padding(.top, 55)
+        VStack {
+            ZStack(alignment: .top) {
+                ScrollView {
+                    ForEach($orders) { order in
+                        OrderRowView(order: order)
+//                        Text(order.item.name)
+                            .padding(.bottom, 5)
+                            .padding([.leading, .trailing], 7)
+                            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
+                            .shadow(radius: 10)
+                    }
+                }.padding(.top, 55)
 
-            HStack {
-                //                Label("Cart", systemImage: "cart")
-                Text("Order Pizza")
-                    .font(.title)
-                Spacer()
-                Label {
-                    Text(59.99, format: .currency(code: "USD"))
+                HStack {
+                    //                Label("Cart", systemImage: "cart")
+                    Text("Order Pizza")
+                        .font(.title)
+                    Spacer()
+                    Label {
+                        Text(59.99, format: .currency(code: "USD"))
+                    }
+                    icon: {
+                        Image(systemName: orders.isEmpty ? "cart" : "cart.circle.fill")
+                    }
                 }
-                icon: {
-                    Image(systemName: orders.isEmpty ? "cart" : "cart.circle.fill")
+                .padding([.leading, .trailing], 15)
+                .padding([.top, .bottom], 10)
+                .background(.ultraThinMaterial)
+            }
+            .padding()
+            Button("Delete Order") {
+                if !orders.isEmpty {
+                    orders.removeLast()
                 }
             }
-            .padding([.leading, .trailing], 15)
-            .padding([.top, .bottom], 10)
-            .background(.ultraThinMaterial)
+            .padding(5)
+            .background(.regularMaterial, in: Capsule())
+            .padding(7)
         }
-        .padding()
-        .background(Color.cyan)
+        .background(Color("Surf"))
     }
 }
 
 #Preview {
-    OrderView(orders: [1, 2, 3, 4, 5])
+    OrderView(orders: .constant(testOrders))
 }
