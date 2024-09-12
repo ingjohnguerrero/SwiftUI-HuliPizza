@@ -20,10 +20,12 @@ struct StatusBarView: View {
             } label: {
                 Image(systemName: showOrders ? "cart" : "menucard")
             }
-            Button() {
-                isMenuGrid.toggle()
-            } label: {
-                Image(systemName: isMenuGrid ? "square.grid.3x2" : "list.bullet")
+            if !showOrders {
+                Button() {
+                    isMenuGrid.toggle()
+                } label: {
+                    Image(systemName: isMenuGrid ? "square.grid.3x2" : "list.bullet")
+                }
             }
             Spacer()
             Label {
