@@ -37,12 +37,6 @@ struct HeaderView: View {
                         .fontWeight(.semibold)
                 }
             }
-
-            Label {
-                Text(orders.orderTotal, format: .currency(code: "USD"))
-            } icon: {
-                Image(systemName: orders.orderItems.isEmpty ? "cart" : "cart.circle.fill")
-            }
         }
         .background(.ultraThickMaterial)
     }
