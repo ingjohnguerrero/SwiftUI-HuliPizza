@@ -11,7 +11,11 @@ struct OrderItemView: View {
     @Binding var orderItem: OrderItem
     @State private var quantity = 1
     @State private var doubleIngredients = false
-    @State private var pizzaCrust: PizzaCrust = .calzone
+    @State var pizzaCrust: PizzaCrust
+    init(orderItem: Binding<OrderItem>) {
+        self._orderItem = orderItem
+        self.pizzaCrust = orderItem.item.crust.wrappedValue
+    }
     var body: some View {
         VStack {
             Toggle(isOn: $doubleIngredients, label: {
