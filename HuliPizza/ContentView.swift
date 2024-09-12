@@ -41,6 +41,7 @@ struct ContentView: View {
         }
         .padding()
         .background(.linearGradient(colors: [.cyan, Color("Surf"), Color("Sky"), .white], startPoint: .topLeading, endPoint: .bottom))
+        .environmentObject(orders)
     }
 }
 
