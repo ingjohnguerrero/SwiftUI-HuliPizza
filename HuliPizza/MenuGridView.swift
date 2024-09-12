@@ -8,21 +8,22 @@
 import SwiftUI
 
 struct MenuGridView: View {
+    var menu: [MenuItem]
     @State private var favorites: [Int] = [-1]
 
     func menu(id: Int) -> MenuItem {
         menu.first(where: {$0.id == id}) ?? noMenuItem
     }
-
-    var menu: [MenuItem]
-    @State var selectedItem: MenuItem = noMenuItem
+    @Binding var selectedItem: MenuItem
     let columnLayout = Array(repeating: GridItem(), count: 3)
     let favoriteLayout = Array(repeating: GridItem(), count: 5)
+    @Namespace private var nspace
     var body: some View {
         VStack {
             LazyVGrid(columns: favoriteLayout) {
                 ForEach(favorites.sorted(), id:\.self) { itemId in
                     FavoriteTileView(menuItem: menu(id: itemId))
+                        .matchedGeometryEffect(id: itemId, in: nspace)
                         .onTapGesture {
                             selectedItem = menu(id: itemId)
                         }
@@ -33,15 +34,19 @@ struct MenuGridView: View {
                         }
                 }
             }
-            Text(selectedItem.name)
+//            Text(selectedItem.name)
             ScrollView {
                 LazyVGrid(columns: columnLayout, content: {
                     ForEach(menu) { item in
                         if !favorites.contains(item.id) {
                             MenuItemTileView(menuItem: item)
+                                .animation(.easeOut, value: favorites)
+                                .matchedGeometryEffect(id: item.id, in: nspace)
                                 .onTapGesture(count: 2) {
                                     if  !favorites.contains(item.id) {
-                                        favorites.append(item.id)
+                                        withAnimation(.easeOut) {
+                                            favorites.append(item.id)
+                                        }
                                     }
                                 }
                                 .onTapGesture {
@@ -58,9 +63,10 @@ struct MenuGridView: View {
                 })
             }
         }
+        .animation(.easeOut(duration: 0.5), value: favorites)
     }
 }
 
 #Preview {
-    MenuGridView(menu: MenuModel().menu)
+    MenuGridView(menu: MenuModel().menu, selectedItem: .constant(testMenuItem))
 }

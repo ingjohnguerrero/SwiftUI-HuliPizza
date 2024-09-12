@@ -10,14 +10,15 @@ import SwiftUI
 struct ContentView: View {
     var menu: [MenuItem]
     @StateObject var orders: OrderModel = OrderModel()
-    @State private var showOrders: Bool = true
+    @State private var showOrders: Bool = false
+    @State private var isMenuGrid: Bool = false
     @State private var selectedItem: MenuItem = noMenuItem
     var body: some View {
         VStack {
             HeaderView()
                 .shadow(radius: 5)
                 .environment(\.colorScheme, .light)
-            StatusBarView(showOrders: $showOrders)
+            StatusBarView(showOrders: $showOrders, isMenuGrid: $isMenuGrid)
 
             if showOrders {
                 OrderView(orders: orders)
@@ -26,7 +27,11 @@ struct ContentView: View {
                 MenuItemView(item: $selectedItem, orders: orders)
                     .padding(5)
                     .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 10))
-                MenuView(menu: menu, selectedItem: $selectedItem)
+                if isMenuGrid {
+                    MenuGridView(menu: menu, selectedItem: $selectedItem)
+                } else {
+                    MenuView(menu: menu, selectedItem: $selectedItem)
+                }
             }
             Spacer()
         }
