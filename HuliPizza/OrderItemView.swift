@@ -12,12 +12,17 @@ struct OrderItemView: View {
     @State private var quantity = 1
     @State private var doubleIngredients = false
     @State var pizzaCrust: PizzaCrust
+    @State private var name: String = ""
+    @State private var comments: String = ""
     init(orderItem: Binding<OrderItem>) {
         self._orderItem = orderItem
         self.pizzaCrust = orderItem.item.crust.wrappedValue
     }
     var body: some View {
         VStack {
+            TextField("Name", text: $name)
+                .textFieldStyle(RoundedBorderTextFieldStyle())
+                .keyboardType(.default)
             Toggle(isOn: $doubleIngredients, label: {
                 Text("Double Ingedients " + (doubleIngredients ? "Yes": "No"))
             })
@@ -32,9 +37,15 @@ struct OrderItemView: View {
                 Text("Pizza crust")
             }
             .pickerStyle(.menu)
-
+            VStack {
+                Text("Comments")
+                TextEditor(text: $comments)
+            }
+            .clipShape(RoundedRectangle(cornerRadius: 3.0))
+            .shadow(radius: 1)
             Spacer()
         }
+        .padding()
     }
 }
 
