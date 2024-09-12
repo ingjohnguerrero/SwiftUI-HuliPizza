@@ -8,48 +8,55 @@
 import SwiftUI
 
 struct MenuGridView: View {
-    @State private var favorites: [MenuItem] = [noMenuItem]
+    @State private var favorites: [Int] = [-1]
+
+    func menu(id: Int) -> MenuItem {
+        menu.first(where: {$0.id == id}) ?? noMenuItem
+    }
+
     var menu: [MenuItem]
     @State var selectedItem: MenuItem = noMenuItem
     let columnLayout = Array(repeating: GridItem(), count: 3)
     let favoriteLayout = Array(repeating: GridItem(), count: 5)
     var body: some View {
         VStack {
-            LazyHGrid(rows: favoriteLayout) {
-                ForEach(favorites) { item in
-                    FavoriteTileView(menuItem: item)
+            LazyVGrid(columns: favoriteLayout) {
+                ForEach(favorites.sorted(), id:\.self) { itemId in
+                    FavoriteTileView(menuItem: menu(id: itemId))
+                        .onTapGesture {
+                            selectedItem = menu(id: itemId)
+                        }
                         .onLongPressGesture {
-                            let foundIndex = favorites.firstIndex { favorite in
-                                favorite.id == item.id
+                            if let foundIndex = favorites.firstIndex(where: { $0 == itemId }) {
+                                favorites.remove(at: foundIndex)
                             }
-                            guard let foundIndex else { return }
-                            favorites.remove(at: foundIndex)
                         }
                 }
             }
             Text(selectedItem.name)
-            LazyVGrid(columns: columnLayout, content: {
-                ForEach(menu) { item in
-                    if let foundIndex = favorites.firstIndex { $0.id == item.id } {
-
-                    } else {
-                        MenuItemTileView(menuItem: item)
-                            .onTapGesture(count: 2) {
-                                favorites.append(item)
-                            }
-                            .onTapGesture {
-                                selectedItem = item
-                                //favorites.append(item)
-                            }
-                            .onTapGesture(count: 2) {
-                                favorites.append(item)
-                            }
-                            .onLongPressGesture {
-                                selectedItem = noMenuItem
-                            }
+            ScrollView {
+                LazyVGrid(columns: columnLayout, content: {
+                    ForEach(menu) { item in
+                        if !favorites.contains(item.id) {
+                            MenuItemTileView(menuItem: item)
+                                .onTapGesture(count: 2) {
+                                    if  !favorites.contains(item.id) {
+                                        favorites.append(item.id)
+                                    }
+                                }
+                                .onTapGesture {
+                                    selectedItem = item
+                                }
+                                .onTapGesture(count: 2) {
+                                    favorites.append(item.id)
+                                }
+                                .onLongPressGesture {
+                                    selectedItem = noMenuItem
+                                }
+                        }
                     }
-                }
-            })
+                })
+            }
         }
     }
 }
