@@ -11,6 +11,7 @@ struct OrderItemView: View {
     @Binding var orderItem: OrderItem
     @State private var quantity = 1
     @State private var doubleIngredients = false
+    @State private var pizzaCrust: PizzaCrust = .calzone
     var body: some View {
         VStack {
             Toggle(isOn: $doubleIngredients, label: {
@@ -19,6 +20,16 @@ struct OrderItemView: View {
             Stepper(value: $quantity, in: 1...10) {
                 Text("\(quantity) " + (quantity==1 ? "pizza" : "pizzas"))
             }
+            Picker(selection: $pizzaCrust) {
+                ForEach(PizzaCrust.allCases, id: \.self) { crust in
+                    Text(crust.rawValue)
+                }
+            } label: {
+                Text("Pizza crust")
+            }
+            .pickerStyle(.menu)
+
+            Spacer()
         }
     }
 }
