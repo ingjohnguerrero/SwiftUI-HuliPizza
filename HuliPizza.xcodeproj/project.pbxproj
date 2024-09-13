@@ -30,6 +30,7 @@
 		72D49C502C93A40300314DF8 /* MenuItemTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D49C4F2C93A40300314DF8 /* MenuItemTileView.swift */; };
 		72D49C522C93A57B00314DF8 /* MenuGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D49C512C93A57B00314DF8 /* MenuGridView.swift */; };
 		72D49C542C93A85B00314DF8 /* FavoriteTileView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D49C532C93A85B00314DF8 /* FavoriteTileView.swift */; };
+		72D49C562C93D6FF00314DF8 /* OrderDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 72D49C552C93D6FF00314DF8 /* OrderDetailView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -76,6 +77,7 @@
 		72D49C4F2C93A40300314DF8 /* MenuItemTileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MenuItemTileView.swift; sourceTree = "<group>"; };
 		72D49C512C93A57B00314DF8 /* MenuGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MenuGridView.swift; sourceTree = "<group>"; };
 		72D49C532C93A85B00314DF8 /* FavoriteTileView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FavoriteTileView.swift; sourceTree = "<group>"; };
+		72D49C552C93D6FF00314DF8 /* OrderDetailView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrderDetailView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -137,6 +139,7 @@
 		725E474B2BB632AB006A73B9 /* HuliPizza */ = {
 			isa = PBXGroup;
 			children = (
+				72D49C552C93D6FF00314DF8 /* OrderDetailView.swift */,
 				725E474E2BB632AB006A73B9 /* ContentView.swift */,
 				72D49C532C93A85B00314DF8 /* FavoriteTileView.swift */,
 				725E47802BB6433B006A73B9 /* HeaderView.swift */,
@@ -328,6 +331,7 @@
 				72985CB92C92872C00DEEB83 /* StatusBarView.swift in Sources */,
 				72D49C522C93A57B00314DF8 /* MenuGridView.swift in Sources */,
 				725E477B2BB6430B006A73B9 /* MenuItemView.swift in Sources */,
+				72D49C562C93D6FF00314DF8 /* OrderDetailView.swift in Sources */,
 				725E47812BB6433B006A73B9 /* HeaderView.swift in Sources */,
 				72D49C502C93A40300314DF8 /* MenuItemTileView.swift in Sources */,
 				723A6DD22C913ABB006692CA /* MenuItem.swift in Sources */,
