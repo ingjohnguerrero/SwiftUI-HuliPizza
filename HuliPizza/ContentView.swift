@@ -20,14 +20,15 @@ struct ContentView: View {
                     .shadow(radius: 5)
                     .environment(\.colorScheme, .light)
                 StatusBarView(showOrders: $showOrders, isMenuGrid: $isMenuGrid)
-                MenuItemView(item: $selectedItem, orders: orders)
-                    .padding(5)
-                    .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 10))
-                if isMenuGrid {
-                    MenuGridView(menu: menu, selectedItem: $selectedItem)
-                } else {
-                    MenuView(menu: menu, selectedItem: $selectedItem)
-                }
+//                MenuItemView(item: $selectedItem, orders: orders)
+//                    .padding(5)
+//                    .background(.thinMaterial, in: RoundedRectangle(cornerRadius: 10))
+//                if isMenuGrid {
+//                    MenuGridView(menu: menu, selectedItem: $selectedItem)
+//                } else {
+//                    MenuView(menu: menu, selectedItem: $selectedItem)
+//                }
+                MenuView2(menu: menu)
             }.tabItem { Label("Menu", systemImage: "list.bullet") }
             VStack {
                 HeaderView()
