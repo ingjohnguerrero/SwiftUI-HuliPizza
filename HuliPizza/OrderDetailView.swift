@@ -131,8 +131,8 @@ struct OrderDetailView: View {
         }
         .padding()
         .navigationTitle("Your Order")
-        .background(Color("Surf"))
-        
+        .background(.thickMaterial)
+
     }
     
 }

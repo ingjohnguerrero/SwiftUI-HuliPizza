@@ -11,29 +11,25 @@ struct OrderView: View {
     @ObservedObject var orders: OrderModel
     var body: some View {
         VStack {
-            ZStack(alignment: .top) {
-                ScrollView {
-                    ForEach($orders.orderItems) { order in
-                        OrderRowView(order: order)
-//                        Text(order.item.name)
+            NavigationStack {
+                List($orders.orderItems) { $order in
+                    NavigationLink(value: order) {
+                        OrderRowView(order: $order)
+                            .padding(4)
+                            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                            .shadow(radius: 10)
                             .padding(.bottom, 5)
                             .padding([.leading, .trailing], 7)
-                            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 8))
-                            .shadow(radius: 10)
                     }
-                }.padding(.top, 55)
-
-                HStack {
-                    //                Label("Cart", systemImage: "cart")
-                    Text("Order Pizza")
-                        .font(.title)
-                    Spacer()
                 }
-                .padding([.leading, .trailing], 15)
-                .padding([.top, .bottom], 10)
-                .background(.ultraThinMaterial)
+                .navigationTitle("Your Order")
+                // Move the navigationDestination outside the List
+                .navigationDestination(for: OrderItem.self) { order in
+                    OrderDetailView(orderItem: $orders.orderItems[orders.orderItems.firstIndex(where: { $0.id == order.id })!], presentSheet: .constant(false), newOrder: .constant(false))
+                }
             }
-            .padding()
+            .padding(.top, 70)
+
             Button("Delete Order") {
                 if !orders.orderItems.isEmpty {
                     orders.orderItems.removeLast()
