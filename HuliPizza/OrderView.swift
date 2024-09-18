@@ -12,14 +12,22 @@ struct OrderView: View {
     var body: some View {
         VStack {
             NavigationStack {
-                List($orders.orderItems) { $order in
-                    NavigationLink(value: order) {
-                        OrderRowView(order: $order)
-                            .padding(4)
-                            .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
-                            .shadow(radius: 10)
-                            .padding(.bottom, 5)
-                            .padding([.leading, .trailing], 7)
+                List {
+                    ForEach($orders.orderItems) { $order in
+                        NavigationLink(value: order) {
+                            OrderRowView(order: $order)
+                                .padding(4)
+                                .background(.regularMaterial, in: RoundedRectangle(cornerRadius: 10))
+                                .shadow(radius: 10)
+                                .padding(.bottom, 5)
+                                .padding([.leading, .trailing], 7)
+                        }
+                    }
+                    .onDelete { indexSet in
+                        orders.orderItems.remove(atOffsets: indexSet)
+                    }
+                    .onMove { source, destination in
+                        orders.orderItems.move(fromOffsets: source, toOffset: destination)
                     }
                 }
                 .navigationTitle("Your Order")
@@ -28,16 +36,17 @@ struct OrderView: View {
                     OrderDetailView(orderItem: $orders.orderItems[orders.orderItems.firstIndex(where: { $0.id == order.id })!], presentSheet: .constant(false), newOrder: .constant(false))
                 }
             }
-            .padding(.top, 70)
-
-            Button("Delete Order") {
-                if !orders.orderItems.isEmpty {
-                    orders.orderItems.removeLast()
-                }
-            }
-            .padding(5)
-            .background(.regularMaterial, in: Capsule())
-            .padding(7)
+            // Not needed anymore
+//            .padding(.top, 70)
+//
+//            Button("Delete Order") {
+//                if !orders.orderItems.isEmpty {
+//                    orders.orderItems.removeLast()
+//                }
+//            }
+//            .padding(5)
+//            .background(.regularMaterial, in: Capsule())
+//            .padding(7)
         }
         .background(Color("Surf"))
     }
