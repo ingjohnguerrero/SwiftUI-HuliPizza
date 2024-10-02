@@ -18,6 +18,7 @@ struct OrderDetailView: View {
     @State private var pizzaCrust:PizzaCrust
     @State private var name:String
     @State private var comments:String
+    @State private var presentOrderAlert:Bool = false
     @EnvironmentObject var orders:OrderModel
     
     init(orderItem:Binding<OrderItem>,presentSheet:Binding<Bool>,newOrder:Binding<Bool>){
@@ -102,36 +103,45 @@ struct OrderDetailView: View {
                     .shadow(radius: 1)
             Spacer()
             HStack {
-                Button("Order"){
-                    updateOrder()
-                    if newOrder{
-                        orders.addOrder(orderItem: orderItem)
-                    } else {
-                        orders.replaceOrder(id: orderItem.id, with: orderItem)
-                    }
-                    presentSheet = false
-                    }
-                    .padding()
-                    .padding([.leading,.trailing])
-                    .foregroundColor(.white)
-                    .background(.green,in: Capsule())
-                    .font(.title)
-                    .padding(.trailing,20)
-                    .shadow(radius:7,x:2,y:2)
-                Button("Cancel"){
+                Button(newOrder ? "Order" : "Update"){
+                    presentOrderAlert = true
                     presentSheet = false
                 }
                 .padding()
                 .padding([.leading,.trailing])
                 .foregroundColor(.white)
-                .background(.red,in: Capsule())
+                .background(.green,in: Capsule())
                 .font(.title)
+                .padding(.trailing,20)
                 .shadow(radius:7,x:2,y:2)
+//                Button("Cancel"){
+//                    presentSheet = false
+//                }
+//                .padding()
+//                .padding([.leading,.trailing])
+//                .foregroundColor(.white)
+//                .background(.red,in: Capsule())
+//                .font(.title)
+//                .shadow(radius:7,x:2,y:2)
+            }.alert("Are you sure you want to update your order?", isPresented: $presentOrderAlert) {
+                Button("No", role: .cancel) {
+
+                }
+
+                Button("Yes", role: .destructive) {
+                    updateOrder()
+                    if newOrder {
+                        orders.addOrder(orderItem: orderItem)
+                    } else {
+                        orders.replaceOrder(id: orderItem.id, with: orderItem)
+                    }
+                }
             }
         }
         .padding()
         .navigationTitle("Your Order")
-        .background(.thickMaterial)
+//        .background(.thickMaterial)
+        .background(Color("Surf"), in: Rectangle())
 
     }
     
